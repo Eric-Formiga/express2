@@ -5,31 +5,21 @@ const port = 3000
 const path = require('path')
 const basePath = path.join(__dirname, 'templates')
 
-const checkAuth = function(req, res, next) {
+app.get('/users/:id', (req, res) => {
+  const id = req.params.id
+  console.log(id)
+  res.sendFile(`${basePath}/index.html`)
 
-  req.authStatus = true
+})
 
-  if(req.authStatus){
-    console.log("Está logado, faça o login para continuar")
-    next()
-  }else{
-    console.log("não esta logado.")
-    next()
-  }
-}
-
-app.use(checkAuth)
 
 app.get('/', (req, res) => {
   res.send("Olá mundo!")
 
 })
 
-app.get('/html', (req, res) => {
-  res.sendFile(`${basePath}/index.html`)
 
-})
 
-app.listen(port, ()=>{
+app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`)
 })
