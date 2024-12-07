@@ -10,6 +10,10 @@ router.use(express.urlencoded({
 
 router.use(express.json())
 
+//arquivos estáticos
+appendFile.use(express.static('public'))
+
+
 router.get('/add', (req, res) => {
 
   res.sendFile(`${basePath}/userform.html`)
