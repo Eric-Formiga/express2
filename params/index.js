@@ -18,6 +18,10 @@ app.get('/', (req, res) => {
 
 })
 
+app.use(function(req, res, next) {
+  res.status(404).send(`${basePath}/404.html` )
+})
+
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`)
 })
