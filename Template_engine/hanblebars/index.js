@@ -7,6 +7,14 @@ const app = express();
 app.engine('handlebars', exphbs.engine()); // Registro do mecanismo de template
 app.set('view engine', 'handlebars'); // Definindo o view engine como Handlebars
 
+
+app.get('/dashboard', (req, res) => {
+  const user = {
+    name: "joão",
+    sobrenome: "silva"
+  }
+  res.render('dashboard', {user : user}); // Renderiza o template `home.handlebars`
+});
 // Rota principal
 app.get('/', (req, res) => {
   const user = {
@@ -15,7 +23,9 @@ app.get('/', (req, res) => {
   }
 
   const palavra = "teste"
-  res.render('home', {user : user, palavra}); // Renderiza o template `home.handlebars`
+  
+  const auth = true
+  res.render('home', {user : user, palavra, auth}); // Renderiza o template `home.handlebars`
 });
 
 // Iniciando o servidor

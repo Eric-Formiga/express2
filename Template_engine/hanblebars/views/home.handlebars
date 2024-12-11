@@ -2,3 +2,8 @@
 <p>Algum texto do site</p>
 <p>o nome do usuário é {{user.name}} {{user.sobrenome}}</p>
 <p>A palavra é {{palavra}}</p>
+
+{{#if auth}}
+<p>você esta autenticado</p>
+<a href="/dashboard">area de membros</a>
+{{/if}}
