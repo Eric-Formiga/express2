@@ -9,7 +9,7 @@ app.set('view engine', 'handlebars'); // Definindo o view engine como Handlebars
 
 // Rota principal
 app.get('/', (req, res) => {
-  res.render('home', { layout: false }); // Renderiza o template `home.handlebars`
+  res.render('home'); // Renderiza o template `home.handlebars`
 });
 
 // Iniciando o servidor
