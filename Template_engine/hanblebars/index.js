@@ -9,7 +9,13 @@ app.set('view engine', 'handlebars'); // Definindo o view engine como Handlebars
 
 // Rota principal
 app.get('/', (req, res) => {
-  res.render('home'); // Renderiza o template `home.handlebars`
+  const user = {
+    name: "joão",
+    sobrenome: "silva"
+  }
+
+  const palavra = "teste"
+  res.render('home', {user : user, palavra}); // Renderiza o template `home.handlebars`
 });
 
 // Iniciando o servidor
