@@ -11,6 +11,7 @@ const hbs =  exphbs.create({
 app.engine('handlebars', hbs.engine); // Registro do mecanismo de template
 app.set('view engine', 'handlebars'); // Definindo o view engine como Handlebars
 
+app.use(express.static('public'))
 app.get('/blog', (req, res) => {
 
   const posts = [
