@@ -3,10 +3,35 @@ const exphbs = require('express-handlebars');
 
 const app = express();
 
+const hbs =  exphbs.create({
+  partialsDir: ['views/partials'],
+})
+
 // Configurando o Handlebars como template engine
-app.engine('handlebars', exphbs.engine()); // Registro do mecanismo de template
+app.engine('handlebars', hbs.engine); // Registro do mecanismo de template
 app.set('view engine', 'handlebars'); // Definindo o view engine como Handlebars
 
+app.get('/blog', (req, res) => {
+
+  const posts = [
+    {
+      title: "um titulo",
+      category: "a",
+      age: 2025
+    },
+    {
+      title: "outro titulo",
+      category: "b",
+      age: 2024
+    },
+    {
+      title: "novo titulo",
+      category: "c",
+      age: 2023
+    }
+  ]
+  res.render('blog', {posts}); // Renderiza o template `home.handlebars`
+});
 
 app.get('/dashboard', (req, res) => {
   const items = ["a", "b", "c", "d", "e", "f"]
