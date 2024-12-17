@@ -66,3 +66,31 @@ app.get('/', (req, res) => {
 app.listen(3000, () => {
   console.log('App funcionando na porta 3000!');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+try {
+  
+} catch (error) {
+  
+}
+
+
+VV.Form.DoAjaxFormSave().then(() => {
+  alert('Formulário salvo com sucesso!');
+}).catch((e) => {
+  alert(e);
+});
