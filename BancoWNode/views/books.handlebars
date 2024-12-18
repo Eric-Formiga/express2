@@ -2,7 +2,11 @@
 <div>
   {{#each books}}
   <div>
-    #{{this.id}} - <span> {{this.title}}</span> - {{this.pageqty}} Páginas
+    #{{this.id}} -
+    <a href="/books/{{this.id}}">
+      <span> {{this.title}}</span>
+    </a> 
+    - {{this.pageqty}} Páginas
   </div>
   {{/each}}
 </div>
