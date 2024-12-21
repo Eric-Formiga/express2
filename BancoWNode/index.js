@@ -61,7 +61,6 @@ app.get('/books/:id', (req, res) => {
       return
     }
     const book = data[0]
-    console.log(book)
     res.render('book', {book})
   })
 });
