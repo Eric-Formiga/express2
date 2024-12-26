@@ -27,9 +27,10 @@ app.post('/books/insertbook', (req, res) => {
   const title = req.body.title
   const pageqty = req.body.pageqty
 
-  const sql = `INSERT INTO books (title, pageqty) VALUES('${title}', '${pageqty}')`
+  const sql = `INSERT INTO books (??, ??) VALUES(?,?)`
+  const data = ['title', 'pageqty', title, pageqty]
 
-  conn.query(sql, function (err) {
+  conn.query(sql,data, function (err) {
     if (err) {
       console.log(err)
     }
